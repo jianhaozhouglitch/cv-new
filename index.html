@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>个人简历 — ZHOU Jianhao</title>
-  <meta name="description" content="交互式个人简历 — 简洁、大方、响应式" />
+  <title>周健豪 — 室内设计与数字建模作品集</title>
+  <meta name="description" content="周健豪的室内设计、BIM 建模与空间视觉表达作品集" />
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -13,12 +13,15 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="#">ZHOU Jianhao</a>
+      <a class="logo" href="#">周健豪 · Portfolio</a>
       <nav class="nav" id="main-nav">
         <a href="#about">关于</a>
+        <a href="#education">教育</a>
         <a href="#skills">技能</a>
         <a href="#experience">经历</a>
         <a href="#projects">项目</a>
+        <a href="#campus">校内</a>
+        <a href="#honors">荣誉</a>
         <a href="#contact">联系</a>
       </nav>
       <button class="nav-toggle" id="nav-toggle" aria-label="切换导航">
@@ -27,139 +30,11 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="container hero-inner">
-        <div class="hero-profile reveal">
-          <img class="avatar" src="./7da69ff8846b9020964fe3c5340ebc2b.jpg" alt="头像" />
-          <div class="profile-meta">
-            <h1>ZHOU Jianhao</h1>
-            <p class="muted">前端工程师 · 交互设计 · 架构爱好者</p>
-            <div class="cta">
-              <a class="btn" href="#projects">查看项目</a>
-              <a class="btn ghost" href="#contact">联系我</a>
-            </div>
-          </div>
-        </div>
-        <div class="hero-summary reveal">
-          <p>我专注于构建高性能、可访问且具有优秀交互体验的 Web 应用，擅长用简洁的设计与细腻的动效提升产品价值。欢迎查看我的作品与经历。</p>
-          <ul class="hero-highlights">
-            <li>响应式布局 &mdash; 移动优先</li>
-            <li>现代前端栈（HTML/CSS/JavaScript）</li>
-            <li>可访问性与性能优化</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="container section" id="about">
-      <div class="section-grid">
-        <div class="card reveal">
-          <h2>个人信息</h2>
-          <p>姓名：ZHOU Jianhao<br>所在地：城市，国家<br>职业：前端工程师</p>
-        </div>
-        <div class="card reveal">
-          <h2>自我介绍</h2>
-          <p>熟悉组件化开发与现代构建工具，善于解决跨浏览器与跨平台的兼容问题。喜欢将复杂的交互拆分为可复用的微交互。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="container section" id="skills">
-      <h2 class="section-title reveal">技能特长</h2>
-      <div class="skills-grid">
-        <div class="skill-card reveal">
-          <h3>前端</h3>
-          <p>HTML, CSS, JavaScript, TypeScript, Vue, React</p>
-        </div>
-        <div class="skill-card reveal">
-          <h3>样式与动画</h3>
-          <p>CSS3, Flexbox, Grid, 动画（Transform, Transition, Keyframes）</p>
-        </div>
-        <div class="skill-card reveal">
-          <h3>工具链</h3>
-          <p>Webpack, Vite, ESLint, Prettier, Git</p>
-        </div>
-        <div class="skill-card reveal">
-          <h3>实践</h3>
-          <p>性能优化、无障碍（a11y）、响应式设计</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="container section" id="experience">
-      <h2 class="section-title reveal">工作经历</h2>
-      <div class="timeline">
-        <div class="timeline-item reveal">
-          <div class="time">2022 - 至今</div>
-          <div class="desc">
-            <h3>高级前端工程师 — 示例公司</h3>
-            <p>负责前端架构设计、核心组件库建设与性能优化，带领小型团队完成模块化重构。</p>
-          </div>
-        </div>
-        <div class="timeline-item reveal">
-          <div class="time">2019 - 2022</div>
-          <div class="desc">
-            <h3>前端工程师 — 公司 B</h3>
-            <p>参与多个项目的研发，推动 SEO 与首屏性能改进，提升页面加载速度与转化率。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="container section" id="projects">
-      <h2 class="section-title reveal">项目展示</h2>
-      <div class="projects-grid">
-        <article class="project-card reveal" data-title="项目 A" data-desc="项目 A 的简介，使用了 Vue + Vite，负责组件化与性能优化。">
-          <div class="project-media" aria-hidden="true"></div>
-          <h3>项目 A</h3>
-          <p class="muted">Vue · Vite · 性能优化</p>
-          <button class="btn btn-sm" aria-label="查看详情">查看详情</button>
-        </article>
-
-        <article class="project-card reveal" data-title="项目 B" data-desc="项目 B 的简介，侧重于交互设计与无障碍支持。">
-          <div class="project-media" aria-hidden="true"></div>
-          <h3>项目 B</h3>
-          <p class="muted">React · 交互设计</p>
-          <button class="btn btn-sm" aria-label="查看详情">查看详情</button>
-        </article>
-
-        <article class="project-card reveal" data-title="项目 C" data-desc="项目 C 的简介，包含 PWA 与离线支持实现。">
-          <div class="project-media" aria-hidden="true"></div>
-          <h3>项目 C</h3>
-          <p class="muted">PWA · 离线支持</p>
-          <button class="btn btn-sm" aria-label="查看详情">查看详情</button>
-        </article>
-      </div>
-    </section>
-
-    <section class="container section" id="contact">
-      <h2 class="section-title reveal">联系方式</h2>
-      <div class="contact-grid">
-        <div class="card reveal">
-          <h3>邮箱</h3>
-          <p><a href="mailto:jianhaozhou930@gmail.com">jianhaozhou930@gmail.com</a></p>
-          <h3>电话</h3>
-          <p>+86 138 0000 0000</p>
-          <h3>社交</h3>
-          <p><a href="#">GitHub</a> · <a href="#">LinkedIn</a></p>
-        </div>
-        <form class="card contact-form reveal" id="contact-form">
-          <label for="name">姓名</label>
-          <input id="name" name="name" required />
-          <label for="email">邮件</label>
-          <input id="email" name="email" type="email" required />
-          <label for="message">信息</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
-          <button class="btn" type="submit">发送</button>
-        </form>
-      </div>
-    </section>
-  </main>
+  <main id="portfolio-content"></main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p class="muted">© 2026 ZHOU Jianhao — 简洁 · 专业 · 交互</p>
+      <p class="muted">© 2026 周健豪 — 空间设计 · 数字建模 · 视觉表达</p>
       <a class="top-link" href="#home">回到顶部</a>
     </div>
   </footer>
@@ -170,6 +45,7 @@
       <button class="modal-close" aria-label="关闭">✕</button>
       <h3 id="modal-title">项目标题</h3>
       <p id="modal-desc">项目描述</p>
+      <a id="modal-link" class="btn btn-sm" href="#" target="_blank" rel="noreferrer">查看项目</a>
     </div>
   </div>
 
