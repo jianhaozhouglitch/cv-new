@@ -20,12 +20,12 @@ const PORTFOLIO_DATA = {
     { period: '2026.03 - 2026.07', title: '室内设计师 — 广州合纵信息发展有限公司', detail: '与客户沟通需求，根据现场实际情况完成饮品店平面规划、3D 建模和效果图渲染，并根据客户意见持续微调方案。业绩：46 个饮品店全部落地。' }
   ],
   projects: [
-    { title: '第十三届 NCDA 未来设计师·全国高校数字艺术设计大赛', tags: ['展览设计', '数字艺术', '省赛二等奖'], detail: '将碉楼建筑风格、特色与使用功能通过现代科技呈现，以通俗易懂的展览方式和富有趣味的互动形式帮助观众了解碉楼。', link: '#' },
-    { title: '第四届 ICAD 国际当代青年美术设计大赛', tags: ['城市更新', '商业街设计', '银奖'], detail: '对广州市从化区太平商业步行街进行优化改造设计，探索商业空间与城市公共体验的结合。', link: '#' },
-    { title: '第六届“BIM 建模大师”杯全国建筑信息模型大赛', tags: ['BIM', '建筑信息模型', '二等奖'], detail: '围绕房建、轨道交通、市政与装配式等方向完成 BIM 建模竞赛要求。', link: '#' },
-    { title: '小别墅 BIM 建模大赛', tags: ['Revit', 'BIM 建模', '一等奖'], detail: '运用 Revit 对照项目平面图完成小别墅数字建模。', link: '#' },
-    { title: '家具厂展厅与办公区设计', tags: ['空间规划', '建模', '效果图渲染'], detail: '根据甲方要求重新布局原始平面，完成空间建模与效果图渲染，项目最终落地。', link: '#' },
-    { title: '校园教学楼架空层广场改造项目', tags: ['校园更新', '实景还原', '项目落地'], detail: '对学校教学楼架空层广场进行翻新改造，完成实景建模还原与效果图渲染。', link: '#' }
+    { slug: 'ncda-future-design', title: '第十三届 NCDA 未来设计师·全国高校数字艺术设计大赛', tags: ['展览设计', '数字艺术', '省赛二等奖'], detail: '将碉楼建筑风格、特色与使用功能通过现代科技呈现，以通俗易懂的展览方式和富有趣味的互动形式帮助观众了解碉楼。', result: '省赛二等奖', link: './projects/ncda-future-design.html' },
+    { slug: 'icad-commercial-street', title: '第四届 ICAD 国际当代青年美术设计大赛', tags: ['城市更新', '商业街设计', '银奖'], detail: '对广州市从化区太平商业步行街进行优化改造设计，探索商业空间与城市公共体验的结合。', result: '银奖', link: './projects/icad-commercial-street.html' },
+    { slug: 'bim-master-modeling', title: '第六届“BIM 建模大师”杯全国建筑信息模型大赛', tags: ['BIM', '建筑信息模型', '二等奖'], detail: '围绕房建、轨道交通、市政与装配式等方向完成 BIM 建模竞赛要求。', result: '二等奖', link: './projects/bim-master-modeling.html' },
+    { slug: 'villa-bim-modeling', title: '小别墅 BIM 建模大赛', tags: ['Revit', 'BIM 建模', '一等奖'], detail: '运用 Revit 对照项目平面图完成小别墅数字建模。', result: '一等奖', link: './projects/villa-bim-modeling.html' },
+    { slug: 'furniture-showroom', title: '家具厂展厅与办公区设计', tags: ['空间规划', '建模', '效果图渲染'], detail: '根据甲方要求重新布局原始平面，完成空间建模与效果图渲染，项目最终落地。', result: '项目落地', link: './projects/furniture-showroom.html' },
+    { slug: 'campus-plaza-renovation', title: '校园教学楼架空层广场改造项目', tags: ['校园更新', '实景还原', '项目落地'], detail: '对学校教学楼架空层广场进行翻新改造，完成实景建模还原与效果图渲染。', result: '项目落地', link: './projects/campus-plaza-renovation.html' }
   ],
   campus: [
     { period: '2023 - 2024', title: '广软 BIM 工作室', detail: '校内部门经历' },
@@ -50,7 +50,7 @@ function renderPortfolio(data) {
     <section class="container section" id="education"><h2 class="section-title reveal">教育背景</h2><div class="timeline">${education.map((item) => `<div class="timeline-item reveal"><div class="time">${escapeHtml(item.period)}</div><div class="desc"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.detail)}</p></div></div>`).join('')}</div></section>
     <section class="container section" id="skills"><h2 class="section-title reveal">专业技能</h2><div class="skills-grid">${skills.map((item) => `<div class="skill-card reveal"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.detail)}</p></div>`).join('')}</div></section>
     <section class="container section" id="experience"><h2 class="section-title reveal">工作经历</h2><div class="timeline">${experience.map((item) => `<div class="timeline-item reveal"><div class="time">${escapeHtml(item.period)}</div><div class="desc"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.detail)}</p></div></div>`).join('')}</div></section>
-    <section class="container section" id="projects"><h2 class="section-title reveal">项目展示</h2><div class="projects-grid">${projects.map((item, index) => `<article class="project-card reveal" data-title="${escapeHtml(item.title)}" data-desc="${escapeHtml(item.detail)}" data-link="${escapeHtml(item.link)}"><div class="project-media project-media-${index % 3}" aria-hidden="true"></div><h3>${escapeHtml(item.title)}</h3><p class="muted">${item.tags.map(escapeHtml).join(' · ')}</p><button class="btn btn-sm" type="button" aria-label="查看 ${escapeHtml(item.title)} 详情">查看详情</button></article>`).join('')}</div></section>
+    <section class="container section" id="projects"><h2 class="section-title reveal">项目展示</h2><div class="projects-grid">${projects.map((item, index) => `<article class="project-card reveal"><a class="project-card-link" href="${escapeHtml(item.link)}" aria-label="查看 ${escapeHtml(item.title)} 详情"><div class="project-media project-media-${index % 3}" aria-hidden="true"></div><h3>${escapeHtml(item.title)}</h3><p class="muted">${item.tags.map(escapeHtml).join(' · ')}</p><span class="btn btn-sm">查看详情</span></a></article>`).join('')}</div></section>
     <section class="container section" id="campus"><h2 class="section-title reveal">校内经历</h2><div class="timeline">${campus.map((item) => `<div class="timeline-item reveal"><div class="time">${escapeHtml(item.period)}</div><div class="desc"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.detail)}</p></div></div>`).join('')}</div></section>
     <section class="container section" id="honors"><h2 class="section-title reveal">荣誉与证书</h2><div class="honors-grid">${honors.map((item) => `<div class="honor-card reveal">${escapeHtml(item)}</div>`).join('')}</div></section>
     <section class="container section" id="contact"><h2 class="section-title reveal">联系方式</h2><div class="contact-grid"><div class="card reveal"><h3>邮箱</h3><p><a href="mailto:${escapeHtml(contact.email)}">${escapeHtml(contact.email)}</a></p><h3>电话</h3><p>${escapeHtml(contact.phone)}</p>${socialSection}</div><form class="card contact-form reveal" id="contact-form"><label for="name">姓名</label><input id="name" name="name" required /><label for="email">邮件</label><input id="email" name="email" type="email" required /><label for="message">信息</label><textarea id="message" name="message" rows="4" required></textarea><button class="btn" type="submit">发送</button></form></div></section>`;
@@ -131,14 +131,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     document.body.style.overflow = '';
   }
 
-  document.querySelectorAll('.project-card').forEach(card=>{
-    const btn = card.querySelector('button');
-    btn?.addEventListener('click', ()=>{
-      const title = card.dataset.title || card.querySelector('h3')?.textContent || '项目';
-      const desc = card.dataset.desc || '项目详情未填写。';
-      openModal(title, desc, card.dataset.link);
-    });
-  });
+  // Project details now live on dedicated pages, so cards use normal links.
   modalClose?.addEventListener('click', closeModal);
   modal?.addEventListener('click', (e)=>{
     if(e.target === modal) closeModal();
