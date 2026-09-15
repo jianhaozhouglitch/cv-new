@@ -1,7 +1,7 @@
-:root { --ink:#17243a; --ink-soft:#516078; --paper:#f5f1e9; --surface:#fffdf9; --line:rgba(23,36,58,.12); --blue:#173d5c; --blue-light:#dceaf0; --coral:#e8755d; --yellow:#f1c96b; --radius:18px; --max-width:1120px; font-family:"Inter","Microsoft YaHei",sans-serif; color-scheme:light; }
+:root { --ink:#17243a; --ink-soft:#516078; --paper:#dfeaf7; --surface:#f7fbff; --line:rgba(23,36,58,.12); --blue:#173d5c; --blue-light:#dceaf0; --coral:#e8755d; --yellow:#f1c96b; --radius:18px; --max-width:1120px; font-family:"Inter","Microsoft YaHei",sans-serif; color-scheme:light; }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; scroll-padding-top:82px; }
-body { min-height:100%; margin:0; color:var(--ink); background-color:var(--paper); background-image:radial-gradient(rgba(23,61,92,.08) 1px,transparent 1px); background-size:22px 22px; font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased; }
+body { min-height:100%; margin:0; color:var(--ink); background-color:var(--paper); background-image:radial-gradient(rgba(23,61,92,.06) 1px,transparent 1px); background-size:22px 22px; font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased; }
 a { color:var(--blue); }
 .container { width:min(100% - 48px,var(--max-width)); margin:0 auto; }
 /* Give visible content a consistent hover response without scaling layout containers. */
@@ -38,7 +38,7 @@ a { color:var(--blue); }
 .section-title { margin:0 0 24px; font-size:1.65rem; letter-spacing:-.02em; }
 .section-title::before { display:inline-block; width:28px; height:4px; margin:0 12px 5px 0; border-radius:4px; background:var(--coral); content:""; }
 .section-grid,.contact-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; }
-.card,.skill-card,.project-card { border:1px solid var(--line); border-radius:var(--radius); background:rgba(255,253,249,.9); box-shadow:0 10px 30px rgba(23,36,58,.06); }
+.card,.skill-card,.project-card { border:1px solid var(--line); border-radius:var(--radius); background:rgba(255,255,255,.45); box-shadow:0 10px 30px rgba(23,36,58,.06); }
 .card { padding:28px; }
 .card h2,.card h3 { margin-top:0; }
 .card h2 { font-family:Georgia,serif; font-size:1.55rem; font-weight:400; }
