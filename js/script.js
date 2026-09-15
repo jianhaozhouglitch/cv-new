@@ -1,7 +1,7 @@
 // Edit this object to update the portfolio. The page is generated from this data.
 const PORTFOLIO_DATA = {
   profile: {
-    name: '周健豪', role: '室内设计 · BIM 建模 · 空间视觉表达', avatar: './7da69ff8846b9020964fe3c5340ebc2b.jpg',
+    name: '周健豪', role: '室内设计 · BIM 建模 · 空间视觉表达', avatar: './d20721c3c2c8df9002894e4747423eda.png',
     summary: '专注于室内空间规划、BIM 建模与效果图表现，能够从客户需求和现场条件出发，将设计方案推进至真实落地。',
     highlights: ['46 个饮品店项目落地', 'BIM 建模与空间设计', '效果图渲染与方案沟通']
   },
