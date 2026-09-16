@@ -67,7 +67,7 @@ a { color:var(--blue); }
 .project-card h3 { line-height:1.45; }
 .btn-sm { align-self:flex-start; min-height:38px; padding:7px 14px; font-size:.88rem; }
 .honors-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
-.honor-card { min-height:86px; display:flex; align-items:center; padding:20px; border-left:4px solid var(--yellow); color:var(--ink); background:rgba(255,253,249,.9); font-weight:700; }
+.honor-card { min-height:86px; display:flex; align-items:center; padding:20px; border-left:4px solid var(--coral); color:var(--ink); background:rgba(255,255,255,.45); font-weight:700; }
 .contact-grid { grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); }
 .contact-grid .card h3:not(:first-child) { margin-top:22px; }
 .contact-grid p { margin-top:4px; }
