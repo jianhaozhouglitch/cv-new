@@ -12,13 +12,19 @@
   --line: rgba(255, 255, 255, .1);
   --radius: 15px;
   --max-width: 1120px;
+  --pointer-x: 50vw;
+  --pointer-y: 35vh;
   font-family: "Inter", "Inter Variable", "Microsoft YaHei", sans-serif;
   color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 75px; }
-body { min-height: 100%; margin: 0; color: var(--white); background: var(--black); font-size: 15px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+body { position: relative; min-height: 100%; margin: 0; color: var(--white); background: var(--black); font-size: 15px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+body::before, body::after { position: fixed; inset: 0; pointer-events: none; content: ""; }
+body::before { z-index: 0; background-image: radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgba(0, 153, 255, .18) 0, rgba(0, 153, 255, .08) 90px, transparent 260px), linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px); background-size: auto, 25px 25px, 25px 25px; background-position: center, 0 0, 0 0; }
+body::after { z-index: 0; opacity: .3; background-image: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, .18) 0 1px, transparent 1px), radial-gradient(circle at 70% 80%, rgba(0, 153, 255, .14) 0 1px, transparent 1px); background-size: 17px 19px, 23px 27px; }
+body > main, body > footer { position: relative; z-index: 1; }
 a { color: var(--blue); }
 button, input, textarea { font: inherit; }
 .container { width: min(100% - 50px, var(--max-width)); margin: 0 auto; }

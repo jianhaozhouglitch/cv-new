@@ -60,6 +60,15 @@ document.addEventListener('DOMContentLoaded', ()=> {
   renderPortfolio(PORTFOLIO_DATA);
   const doc = document.documentElement;
 
+  // Move the background glow with the pointer without affecting page layout.
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!prefersReduced){
+    document.addEventListener('pointermove', (event)=>{
+      doc.style.setProperty('--pointer-x', `${event.clientX}px`);
+      doc.style.setProperty('--pointer-y', `${event.clientY}px`);
+    }, { passive: true });
+  }
+
   // NAV TOGGLE (mobile)
   const navToggle = document.getElementById('nav-toggle');
   const mainNav = document.getElementById('main-nav');
@@ -89,7 +98,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
   });
 
   // Reveal on scroll using IntersectionObserver
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(!prefersReduced){
     const reveals = document.querySelectorAll('.reveal');
     const obs = new IntersectionObserver((entries, observer)=>{
