@@ -44,21 +44,31 @@ function renderPortfolio(data) {
   const basics = about.basics.map((item) => escapeHtml(item)).join('<br>');
   const socialLinks = contact.socials.map((item) => `<a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(item.label)}</a>`).join(' · ');
   const socialSection = socialLinks ? `<h3>社交</h3><p>${socialLinks}</p>` : '';
+  const sectionBlocks = (section, count = 4) => `<div class="section-blocks section-blocks-${section}" aria-hidden="true">${Array.from({ length: count }, (_, index) => `<i class="section-block section-block-${index + 1}"></i>`).join('')}</div>`;
   document.getElementById('portfolio-content').innerHTML = `
-    <section class="hero" id="home"><div class="container hero-inner"><div class="hero-profile"><img class="avatar" src="${escapeHtml(profile.avatar)}" alt="${escapeHtml(profile.name)} 的头像" /><div class="profile-meta reveal"><h1>${escapeHtml(profile.name)}</h1><p class="muted">${escapeHtml(profile.role)}</p><div class="cta"><a class="btn" href="#projects">查看项目</a><a class="btn ghost" href="#contact">联系我</a></div></div><div class="model-frame reveal"><iframe src="https://3d.hunyuan.tencent.com/share?shareId=496a2f5e-f062-4acf-98f1-2613a34bf89e" title="周健豪的混元 3D 模型" loading="eager" allow="fullscreen; autoplay"></iframe><a class="model-fallback" href="https://3d.hunyuan.tencent.com/share?shareId=496a2f5e-f062-4acf-98f1-2613a34bf89e" target="_blank" rel="noreferrer">打开 3D 模型</a></div></div><div class="hero-summary reveal"><p>${escapeHtml(profile.summary)}</p><ul class="hero-highlights">${profile.highlights.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul></div></div></section>
-    <section class="container section" id="about"><div class="section-grid"><div class="card reveal"><h2>个人信息</h2><p>${basics}</p></div><div class="card reveal"><h2>自我介绍</h2><p>${escapeHtml(about.intro)}</p></div></div></section>
-    <section class="container section" id="education"><h2 class="section-title reveal">教育背景</h2><div class="timeline">${education.map((item) => `<div class="timeline-item reveal"><div class="time">${escapeHtml(item.period)}</div><div class="desc"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.detail)}</p></div></div>`).join('')}</div></section>
-    <section class="container section" id="skills"><h2 class="section-title reveal">专业技能</h2><div class="skills-grid">${skills.map((item) => `<div class="skill-card reveal"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.detail)}</p></div>`).join('')}</div></section>
-    <section class="container section" id="experience"><h2 class="section-title reveal">工作经历</h2><div class="timeline">${experience.map((item) => `<div class="timeline-item reveal"><div class="time">${escapeHtml(item.period)}</div><div class="desc"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.detail)}</p></div></div>`).join('')}</div></section>
-    <section class="container section" id="projects"><h2 class="section-title reveal">项目展示</h2><div class="projects-grid">${projects.map((item, index) => `<article class="project-card reveal"><a class="project-card-link" href="${escapeHtml(item.link)}" aria-label="查看 ${escapeHtml(item.title)} 详情"><div class="project-media project-media-${index % 3}" aria-hidden="true"></div><h3>${escapeHtml(item.title)}</h3><p class="muted">${item.tags.map(escapeHtml).join(' · ')}</p><span class="btn btn-sm">查看详情</span></a></article>`).join('')}</div></section>
-    <section class="container section" id="campus"><h2 class="section-title reveal">校内经历</h2><div class="timeline">${campus.map((item) => `<div class="timeline-item reveal"><div class="time">${escapeHtml(item.period)}</div><div class="desc"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.detail)}</p></div></div>`).join('')}</div></section>
-    <section class="container section" id="honors"><h2 class="section-title reveal">荣誉与证书</h2><div class="honors-grid">${honors.map((item) => `<div class="honor-card reveal">${escapeHtml(item)}</div>`).join('')}</div></section>
-    <section class="container section" id="contact"><h2 class="section-title reveal">联系方式</h2><div class="contact-grid"><div class="card reveal"><h3>邮箱</h3><p><a href="mailto:${escapeHtml(contact.email)}">${escapeHtml(contact.email)}</a></p><h3>电话</h3><p>${escapeHtml(contact.phone)}</p>${socialSection}</div><form class="card contact-form reveal" id="contact-form"><label for="name">姓名</label><input id="name" name="name" required /><label for="email">邮件</label><input id="email" name="email" type="email" required /><label for="message">信息</label><textarea id="message" name="message" rows="4" required></textarea><button class="btn" type="submit">发送</button></form></div></section>`;
+    <section class="hero" id="home">${sectionBlocks('hero', 6)}<div class="container hero-inner"><div class="hero-copy"><p class="eyebrow reveal">INTERIOR DESIGNER / 01</p><div class="hero-profile"><img class="avatar reveal" src="${escapeHtml(profile.avatar)}" alt="${escapeHtml(profile.name)} 的头像" /><div class="profile-meta reveal"><h1>${escapeHtml(profile.name)}</h1><p class="muted">${escapeHtml(profile.role)}</p><div class="cta"><a class="btn" href="#projects">查看项目 <span>↓</span></a><a class="btn ghost" href="#contact">联系我</a></div></div></div><div class="hero-summary reveal"><p>${escapeHtml(profile.summary)}</p><ul class="hero-highlights">${profile.highlights.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul></div></div><div class="hero-workbench reveal"><div class="workbench-label">SPACE / 3D STUDY <span>SCROLL TO BUILD</span></div><div class="block-scene"><i class="block block-a"></i><i class="block block-b"></i><i class="block block-c"></i><i class="block block-d"></i><i class="block block-e"></i><i class="block block-f"></i><span class="scene-floor"></span></div><div class="model-frame"><iframe src="https://3d.hunyuan.tencent.com/share?shareId=496a2f5e-f062-4acf-98f1-2613a34bf89e" title="周健豪的混元 3D 模型" loading="eager" allow="fullscreen; autoplay"></iframe><a class="model-fallback" href="https://3d.hunyuan.tencent.com/share?shareId=496a2f5e-f062-4acf-98f1-2613a34bf89e" target="_blank" rel="noreferrer">打开 3D 模型 ↗</a></div></div></div></section>
+    <section class="container section" id="about">${sectionBlocks('about')}<div class="section-grid"><div class="card reveal block-card"><span class="card-index">02 / PROFILE</span><h2>个人信息</h2><p>${basics}</p></div><div class="card reveal block-card"><span class="card-index">03 / APPROACH</span><h2>自我介绍</h2><p>${escapeHtml(about.intro)}</p></div></div></section>
+    <section class="container section" id="education">${sectionBlocks('education')}<h2 class="section-title reveal">教育背景</h2><div class="timeline">${education.map((item) => `<div class="timeline-item reveal"><div class="time">${escapeHtml(item.period)}</div><div class="desc"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.detail)}</p></div></div>`).join('')}</div></section>
+    <section class="container section" id="skills">${sectionBlocks('skills')}<h2 class="section-title reveal">专业技能</h2><div class="skills-grid">${skills.map((item) => `<div class="skill-card reveal"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.detail)}</p></div>`).join('')}</div></section>
+    <section class="container section" id="experience">${sectionBlocks('experience')}<h2 class="section-title reveal">工作经历</h2><div class="timeline">${experience.map((item) => `<div class="timeline-item reveal"><div class="time">${escapeHtml(item.period)}</div><div class="desc"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.detail)}</p></div></div>`).join('')}</div></section>
+    <section class="container section" id="projects">${sectionBlocks('projects', 6)}<h2 class="section-title reveal">项目展示</h2><div class="projects-grid">${projects.map((item, index) => `<article class="project-card reveal"><a class="project-card-link" href="${escapeHtml(item.link)}" aria-label="查看 ${escapeHtml(item.title)} 详情"><div class="project-media project-media-${index % 3}" aria-hidden="true"></div><h3>${escapeHtml(item.title)}</h3><p class="muted">${item.tags.map(escapeHtml).join(' · ')}</p><span class="btn btn-sm">查看详情</span></a></article>`).join('')}</div></section>
+    <section class="container section" id="campus">${sectionBlocks('campus')}<h2 class="section-title reveal">校内经历</h2><div class="timeline">${campus.map((item) => `<div class="timeline-item reveal"><div class="time">${escapeHtml(item.period)}</div><div class="desc"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.detail)}</p></div></div>`).join('')}</div></section>
+    <section class="container section" id="honors">${sectionBlocks('honors')}<h2 class="section-title reveal">荣誉与证书</h2><div class="honors-grid">${honors.map((item) => `<div class="honor-card reveal">${escapeHtml(item)}</div>`).join('')}</div></section>
+    <section class="container section" id="contact">${sectionBlocks('contact')}<h2 class="section-title reveal">联系方式</h2><div class="contact-grid"><div class="card reveal"><h3>邮箱</h3><p><a href="mailto:${escapeHtml(contact.email)}">${escapeHtml(contact.email)}</a></p><h3>电话</h3><p>${escapeHtml(contact.phone)}</p>${socialSection}</div><form class="card contact-form reveal" id="contact-form"><label for="name">姓名</label><input id="name" name="name" required /><label for="email">邮件</label><input id="email" name="email" type="email" required /><label for="message">信息</label><textarea id="message" name="message" rows="4" required></textarea><button class="btn" type="submit">发送</button></form></div></section>`;
 }
 
 document.addEventListener('DOMContentLoaded', ()=> {
   renderPortfolio(PORTFOLIO_DATA);
   const doc = document.documentElement;
+  const progressBar = document.getElementById('scroll-progress-bar');
+  const updateScrollProgress = () => {
+    if (!progressBar) return;
+    const scrollable = doc.scrollHeight - window.innerHeight;
+    const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    progressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+  };
+  updateScrollProgress();
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
 
   // Move the background glow with the pointer without affecting page layout.
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -104,6 +114,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
       entries.forEach(entry=>{
         if(entry.isIntersecting){
           entry.target.classList.add('is-visible');
+          entry.target.closest('.section, .hero')?.classList.add('section-built');
           observer.unobserve(entry.target);
         }
       });
@@ -112,6 +123,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
   } else {
     // if reduced motion, make everything visible immediately
     document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-visible'));
+    document.querySelectorAll('.section, .hero').forEach(section=>section.classList.add('section-built'));
   }
 
   // Project modal (reads data attributes for title/desc)
